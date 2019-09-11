@@ -12,6 +12,8 @@ import android.widget.Toast
 import com.ritika.tictoe.R
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,10 +28,11 @@ class MainActivity : AppCompatActivity() {
                     .setAction("Action", null).show()
         }*/
     }
-    protected fun buClick(view: View)
+    var cellid=0
+     fun buClick(view: View)
     {
-        val buSelected: Button= view as Button
-        var cellid=0
+        var buSelected: Button= view as Button
+
         when(buSelected.id)
         {
             R.id.but1->cellid=1
@@ -57,6 +60,7 @@ fun Playgame(cellid:Int,buSelected:Button) {
         buSelected.setBackgroundColor(Color.GREEN)
         player1.add(cellid)
         activeplayer = 2
+        AutoPlay()
     } else {
 
         buSelected.text = "0"
@@ -115,6 +119,34 @@ if(winner != -1)
     }
 }
 }
+    fun AutoPlay()
+    {
+        var emptycell=ArrayList<Int>()
+for(cellid in 0..9) {
+    if (!(player1.contains(cellid) || player2.contains(cellid))) {
+        emptycell.add(cellid)
+    }
+}
+        val r=Random()
+        val rindex=r.nextInt(emptycell.size-0)+0
+        val cellid=emptycell[rindex]
+        var buSelected: Button?
+        when(cellid)
+        {
+            1->buSelected=but1
+            2->buSelected=but2
+            3->buSelected=but3
+            4->buSelected=but4
+            5->buSelected=but5
+            6->buSelected=but6
+            7->buSelected=but7
+            8->buSelected=but8
+            9->buSelected=but9
+                    else ->{buSelected=but1
+                    }
+        }
+        Playgame(cellid,buSelected)
+    }
 
 
 
