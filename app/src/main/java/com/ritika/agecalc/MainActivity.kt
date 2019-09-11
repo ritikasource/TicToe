@@ -57,14 +57,14 @@ fun Playgame(cellid:Int,buSelected:Button) {
 
     if (activeplayer == 1) {
         buSelected.text = "X"
-        buSelected.setBackgroundColor(Color.GREEN)
+        buSelected.setBackgroundResource(R.color.frst)
         player1.add(cellid)
         activeplayer = 2
         AutoPlay()
     } else {
 
         buSelected.text = "0"
-        buSelected.setBackgroundColor(Color.YELLOW)
+        buSelected.setBackgroundResource(R.color.secnd)
         player2.add(cellid)
         activeplayer = 1
     }
