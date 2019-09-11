@@ -20,10 +20,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
+
+      /*  buClick().setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
-        }
+        }*/
     }
     protected fun buClick(view: View)
     {
@@ -60,7 +61,7 @@ fun Playgame(cellid:Int,buSelected:Button) {
 
         buSelected.text = "0"
         buSelected.setBackgroundColor(Color.YELLOW)
-        player1.add(cellid)
+        player2.add(cellid)
         activeplayer = 1
     }
     buSelected.isEnabled = false
